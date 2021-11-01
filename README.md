@@ -11,7 +11,7 @@ It uses SharePoint REST services to perform CRUD operations and runs on SharePoi
 Read this [documentation](https://docs.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azureacs/) to generate Client ID, Client Secret and Tenant ID.
 
 >*Note:*\
-> *You must have Owner access to a SharePoint site to create a sharepoint app*  
+> *You must have Owner access to a SharePoint site to generate Client ID and Client Secret*  
 
 
 ## Installation
@@ -22,7 +22,7 @@ pip install sharepointsimple
 
 ## Methods
 
-**sharepoint_simple** has four methods
+**sharepointsimple** has four methods
 - [connect](#connect)
 - [download](#download)
 - [upload](#upload)
@@ -76,7 +76,7 @@ ss.upload(SP_path = "Folder/SubFolder",
 ### Optional Step ::
 ### **create_folder**
 
-***create_folder*** is an ***OPTIONAL*** method if you want to create a new folder\
+***create_folder*** is an *optional* method if you want to create a new folder\
 It is ***NOT*** necessary to call this method before uploading a file to a non-existing folder in SP\
 ***upload*** method already has a built in functionality to create a folder if it doesn't exist in SP site
 
