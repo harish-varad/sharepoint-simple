@@ -1,3 +1,4 @@
+#Version 0.1.1
 try:import requests
 except:raise ModuleNotFoundError("No module named 'requests' found. Please install 'requests' module.")
 
@@ -47,8 +48,8 @@ def download(**kwargs):
 
     sharepointfolder= kwargs.get('SP_path',None)
     localPath=kwargs.get('local_path',None)
-    filenamesp=kwargs.get('filename',None)
-    spsitename=kwargs.get('SP_sitename',None)
+    filenamesp=kwargs.get('files_to_download',None)
+    #spsitename=kwargs.get('SP_sitename',None)
     
     sharepointfolder="Shared Documents/"+sharepointfolder
     
