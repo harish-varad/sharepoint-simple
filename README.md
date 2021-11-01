@@ -13,12 +13,12 @@ Read this [documentation](https://docs.microsoft.com/en-us/sharepoint/dev/soluti
 >*Note:*\
 > *You must have Owner access to a SharePoint site to create a sharepoint app*  
 
----
+
 ## Installation
 ```sh
 pip install sharepointsimple
 ```
----
+
 
 ## Methods
 
@@ -28,11 +28,11 @@ pip install sharepointsimple
 - [upload](#upload)
 - [create_folder](#create_folder)
 
----
+
 
 ## Usage
 ### Step 1 ::
-#### **Connect**
+### **connect**
 ```sh
 import sharepointsimple as ss
 
@@ -40,30 +40,31 @@ ss.connect(clientid = 'Your-ClientID',
            clientsecret = 'Your-ClientSecret',
            tenantid = "Your-TenantID", # A method to get TenantID is at end of the page
            domain = 'yourCompany',     #Eg: As in "yourCompany.sharepoint.com"
-           SP_sitename = 'yourSharePointSite')
+           SP_sitename = 'yourSharePointSite'
+           )
 ```
 
 > - You must use ***'connect'*** method first, before using ***download*** or ***upload*** method
 > - [Know how to generate Tenant ID](#how-to-get-tenant-id)
 
 ### Step 2 (1) :: 
-#### **Download**
+### **download**
 ```sh
-ss.download(SP_path = "Folder/SubFolder",   #SP path starts from the root folder directly inside a SP Sites
-            local_path = "/Users/harish/Folder/subfolder",
-            files_to_download = "file1.xlsx","file2.txt" #(Optional) Remove this to download all the files in SP folder
+ss.download(local_path = "/Users/Folder",
+            SP_path = "Folder/SubFolder",           #SP path starts from the root folder directly inside a SP Sites
+            files_to_download = "file1.xlsx,file2.txt" #(Optional) Remove this to download all the files in SP folder
            )
 ```
 
-> - Multiple file names should be given comma seperated as a single string (Filenames in a list is also accepted)
-> - Remove argument *filename* if you want to download all the files in the folder i.e: SP_path
+> - Multiple file names should be given in comma seperated as a single string (list is also accepted)
+> - Remove argument ***filename*** if you want to download all the files in the folder i.e: SP_path
 > - You need not include *'Shared Documents'*, a default folder, under which all the files are present in
 
 ### Step 2 (2) :: 
-#### **Upload**
+### **upload**
 ```sh
 ss.upload(SP_path = "Folder/SubFolder",
-          local_path = "/Users/harish/Folder/subfolder",
+          local_path = "/Users/Folder",
           files_to_download = "file1.xlsx,file2.txt", #(Optional) Remove this to upload all the files in local system
          )
 ```
@@ -72,22 +73,23 @@ ss.upload(SP_path = "Folder/SubFolder",
 
 ---
 
-### Optional Step
-#### **Create_folder**
+### Optional Step ::
+### **create_folder**
 
-***create_folder*** is an ***OPTIONAL*** method if you want to create a new folder only\
-It is ***NOT*** necessary to call this method before uploading a file to a non-existing folder or sub folder\
+***create_folder*** is an ***OPTIONAL*** method if you want to create a new folder\
+It is ***NOT*** necessary to call this method before uploading a file to a non-existing folder in SP\
 ***upload*** method already has a built in functionality to create a folder if it doesn't exist in SP site
 
 ```sh
 ss.create_folder(SP_path = "Folder/SubFolder")
 ```
-Folder will be created in the SharePoint path. It will not create a new folder, if the folder is already present.
+> Folder will be created in the SharePoint path\
+> It will not create a new folder, if the folder is already present
 
----
+
 ## License
 *MIT*\
-*Hit it, it costs nothing!*
+*Hit it, it costs nothing!* :blush:
 
 ---
 
