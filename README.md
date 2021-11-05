@@ -84,7 +84,7 @@ It is ***NOT*** necessary to call this method before uploading a file to a non-e
 ss.create_folder(SP_path = "Folder/SubFolder")
 ```
 > Folder will be created in the SharePoint path\
-> It will not create a new folder, if the folder is already present
+> New folder will not be created if the folder is already present in SharePoint.
 
 
 ## License
